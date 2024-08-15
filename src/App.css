@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  background-color: #2d39527c;
+  background-image: url('./assets/background.jpg');
+  /* opacity: 0.7; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  overflow: hidden;
 }
 
 .App-logo {
@@ -13,16 +24,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
   color: #61dafb;
@@ -30,9 +32,68 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: translate(-60%, -15%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-60%, -15%) rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.pokeball {
+  position: absolute;
+  width: 300px; /* Ajusta el tamaño de las Pokeballs */
+  height: 300px;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+
+.pokeanimation {
+  clip-path: inset(20px 10px 0px 50px);
+  transform: scale(0.4);
+}
+
+.pokelogo {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  margin: 0;
+  top: 0;
+}
+
+.pokeBack {
+  width: 150px;
+  height: 150px;
+  transition: transform 0.2s ease;
+}
+
+.pokeBack.shake {
+  animation: shake 0.5s;
+}
+
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 0; /* Inicia transparente */
+  }
+  50% {
+    opacity: 1; /* Se vuelve completamente visible */
+  }
+  100% {
+    transform: translateX(-100px);
+    opacity: 0; /* Termina transparente */
   }
 }
